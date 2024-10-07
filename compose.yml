@@ -69,6 +69,15 @@ services:
       db:
         condition: service_healthy
 
+  labmate_api:
+    image: ghcr.io/antgobar/labmate_api:prod
+    labels: 
+      - "traefik.enable=true"
+      - "traefik.http.routers.labmate-api.rule=Host(`$LABMATE_API_HOST`)"
+      - "traefik.http.routers.labmate-api.entrypoints=websecure"
+      - "traefik.http.routers.labmate-api.tls.certresolver=myresolver"
+      - "com.centurylinklabs.watchtower.enable=true"
+
 volumes:
   postgres_data:
   letsencrypt:
