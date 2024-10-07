@@ -77,6 +77,8 @@ services:
       - "traefik.http.routers.labmate-api.entrypoints=websecure"
       - "traefik.http.routers.labmate-api.tls.certresolver=myresolver"
       - "com.centurylinklabs.watchtower.enable=true"
+    env_file:
+      - .env
 
 volumes:
   postgres_data:
