@@ -17,18 +17,20 @@ services:
       retries: 5
 
   watchtower:
-      image: containrrr/watchtower
-      command:
-        - "--label-enable"
-        - "--interval"
-        - "30"
-        - "--rolling-restart"
-        - "--cleanup"
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
+    image: containrrr/watchtower
+    restart: always
+    command:
+      - "--label-enable"
+      - "--interval"
+      - "30"
+      - "--rolling-restart"
+      - "--cleanup"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
   reverse-proxy:
     image: traefik:v3.1
+    restart: always
     command: 
       - "--providers.docker"
       - "--entryPoints.web.address=:80"
@@ -52,6 +54,7 @@ services:
 
   labmate:
     image: ghcr.io/antgobar/labmate:prod
+    restart: always
     labels: 
       - "traefik.enable=true"
       - "traefik.http.routers.labmate.rule=Host(`$LABMATE_HOST`)"
@@ -71,6 +74,7 @@ services:
 
   labmate_api:
     image: ghcr.io/antgobar/labmate_api:prod
+    restart: always
     labels: 
       - "traefik.enable=true"
       - "traefik.http.routers.labmate-api.rule=Host(`$LABMATE_API_HOST`)"
