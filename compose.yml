@@ -84,17 +84,17 @@ services:
     env_file:
       - .env
 
-  famcal:
-    image: ghcr.io/antgobar/famcal:prod
-    restart: always
-    labels: 
-      - "traefik.enable=true"
-      - "traefik.http.routers.famcal.rule=Host(`$FAMCAL_HOST`)"
-      - "traefik.http.routers.famcal.entrypoints=websecure"
-      - "traefik.http.routers.famcal.tls.certresolver=myresolver"
-      - "com.centurylinklabs.watchtower.enable=true"
-    env_file:
-      - .env
+  # famcal:
+  #   image: ghcr.io/antgobar/famcal:prod
+  #   restart: always
+  #   labels: 
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.famcal.rule=Host(`$FAMCAL_HOST`)"
+  #     - "traefik.http.routers.famcal.entrypoints=websecure"
+  #     - "traefik.http.routers.famcal.tls.certresolver=myresolver"
+  #     - "com.centurylinklabs.watchtower.enable=true"
+  #   env_file:
+  #     - .env
 
 volumes:
   postgres_data:
