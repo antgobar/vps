@@ -94,7 +94,7 @@ services:
       - "traefik.http.routers.famcal.tls.certresolver=myresolver"
       - "com.centurylinklabs.watchtower.enable=true"
     env_file:
-      - .env_famcal
+      - .env
 
 volumes:
   postgres_data:
