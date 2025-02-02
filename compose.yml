@@ -22,7 +22,7 @@ services:
     command:
       - "--label-enable"
       - "--interval"
-      - "30"
+      - "180"
       - "--rolling-restart"
       - "--cleanup"
     volumes:
