@@ -72,29 +72,29 @@ services:
       db:
         condition: service_healthy
 
-  labmate_api:
-    image: ghcr.io/antgobar/labmate_api:prod
-    restart: always
-    labels: 
-      - "traefik.enable=true"
-      - "traefik.http.routers.labmate-api.rule=Host(`$LABMATE_API_HOST`)"
-      - "traefik.http.routers.labmate-api.entrypoints=websecure"
-      - "traefik.http.routers.labmate-api.tls.certresolver=myresolver"
-      - "com.centurylinklabs.watchtower.enable=true"
-    env_file:
-      - .env
+  # labmate_api:
+  #   image: ghcr.io/antgobar/labmate_api:prod
+  #   restart: always
+  #   labels: 
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.labmate-api.rule=Host(`$LABMATE_API_HOST`)"
+  #     - "traefik.http.routers.labmate-api.entrypoints=websecure"
+  #     - "traefik.http.routers.labmate-api.tls.certresolver=myresolver"
+  #     - "com.centurylinklabs.watchtower.enable=true"
+  #   env_file:
+  #     - .env
 
-  famcal:
-    image: ghcr.io/antgobar/famcal:prod
-    restart: always
-    labels: 
-      - "traefik.enable=true"
-      - "traefik.http.routers.famcal.rule=Host(`$FAMCAL_HOST`)"
-      - "traefik.http.routers.famcal.entrypoints=websecure"
-      - "traefik.http.routers.famcal.tls.certresolver=myresolver"
-      - "com.centurylinklabs.watchtower.enable=true"
-    env_file:
-      - .env
+  # famcal:
+  #   image: ghcr.io/antgobar/famcal:prod
+  #   restart: always
+  #   labels: 
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.famcal.rule=Host(`$FAMCAL_HOST`)"
+  #     - "traefik.http.routers.famcal.entrypoints=websecure"
+  #     - "traefik.http.routers.famcal.tls.certresolver=myresolver"
+  #     - "com.centurylinklabs.watchtower.enable=true"
+  #   env_file:
+  #     - .env
 
 volumes:
   postgres_data:
