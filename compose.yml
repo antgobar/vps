@@ -70,7 +70,7 @@ services:
       db:
         condition: service_healthy
 
-  app:
+  giftlock:
     image: ghcr.io/antgobar/giftlock:prod
     restart: always
     labels: 
