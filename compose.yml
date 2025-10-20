@@ -100,7 +100,7 @@ services:
       timeout: 5s
       retries: 5
     env_file:
-      - .env.giftlock
+      - .env
 
 volumes:
   postgres_data:
