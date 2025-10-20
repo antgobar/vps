@@ -82,7 +82,7 @@ services:
     depends_on:
       - giftlock-db
     env_file:
-      - .env.giftlock
+      - .env
 
   giftlock-db:
     image: postgres:16
