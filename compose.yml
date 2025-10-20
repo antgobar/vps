@@ -95,8 +95,9 @@ services:
     environment:
       - POSTGRES_PASSWORD=$GIFTLOCK_DB_PASSWORD
       - POSTGRES_DB=giftlock
+      - POSTGRES_USER=giftlockuser
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "giftlock"]
+      test: ["CMD", "pg_isready", "-U", "giftlockuser", "-d", "giftlock"]
       interval: 10s
       timeout: 5s
       retries: 5
